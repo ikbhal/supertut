@@ -1,11 +1,31 @@
 [
     {
-	"name": "Dhanashree",
-	"hourlyFee": 1, 
-	"responseTime":"6h",
-	"totalstudents": 4,
-	"photo": "https://c.superprof.com/i/a/26313570/11829349/600/20230804111601/can-teach-marathi-hindi-and-english-languages-preprimary-students-have-knowledge-and-able-teach-phoenix-sound-and-how.jpg",
-	"about": "I like teaching, i have more interested in Marathi and Hindi subjects because I am more confertable explain my thoughts in these subject. I have Day care experience too so I know how to tackle kids in panic situation. Also I am a good listener so kids can do a reading also.",
-	"aboutLesson": "I will try to built his/her confidence at the time of teaching and try to communicate with them. Will continue ask them about their understanding of my methods and wil ask them in every time of class as their concepts."
+        "name": "Dhanashree",
+        "hourlyFee": 1,
+        "responseTime": "6h",
+        "totalstudents": 4,
+        "photo": "https://c.superprof.com/i/a/26313570/11829349/600/20230804111601/can-teach-marathi-hindi-and-english-languages-preprimary-students-have-knowledge-and-able-teach-phoenix-sound-and-how.jpg",
+        "about": "I like teaching, i have more interested in Marathi and Hindi subjects because I am more confertable explain my thoughts in these subject. I have Day care experience too so I know how to tackle kids in panic situation. Also I am a good listener so kids can do a reading also.",
+        "aboutLesson": "I will try to built his/her confidence at the time of teaching and try to communicate with them. Will continue ask them about their understanding of my methods and wil ask them in every time of class as their concepts."
+    },
+    {
+        "name": "Poonam",
+        "hourlyFee": 10,
+        "responseTime": "5h",
+        "totalstudents": 8,
+        "title": "Master in Hindi literature with plus 30 years of Teaching experience, taking classes up to XII standard. My methodology is to make subject simplified and understand it easily. I am a master trainer",
+        "photo": "https://c.superprof.com/i/a/21265154/10243888/600/20220711081113/master-hindi-literature-with-years-teaching-experience-taking-classes-xii-standard-methodology-make.jpg",
+        "about": "A senior but cool teacher.Master trainer of Hindi subject.Prepare classroom lectures with presentation.Encourage in-depth understanding through debates.Ensure fluency in written and verbal communication skills with practical knowledge, besides repeated tests and quizzes. making learning a fun and interesting.",
+        "aboutLesson": "A senior but cool teacher. Focus to solve question (s) of the students with a simple activity based method. Prepare classroom lectures with presentation. Encourage in-depth understanding through debates. Ensure fluency in written and verbal communication skills with practical knowledge, besides repeated tests and quizzes. Help to catch their full potential. making learning a fun and interesting. Sensitive and tolerant to each student’s needs. Always has a positive attitude towards their students. Make learning experience amazing.",
+    },
+    {
+        "name": "Sradha p nair",
+        "hourlyFee": 5,
+        "reponseTime": "6h",
+        "totalstudents": 1,
+        "photo": "https://c.superprof.com/i/a/27053929/12104025/600/20230711171603/was-leaving-rajasthan-hindi-language-perfectly-and-currently-teaching-hindi-institution-and-last-year.jpg",
+        "title": "Hy I was leaving in Rajasthan,so my hindi Language is perfectly OK.and currently I am teaching hindi in a institution and last year through online I taught a student from gulf.i am a college student a",
+        "about": "Myself sradha. Currently taking online and offline classes. I can assure you that from my class every one will be able to speak,write and read.And I have secured 1st position in hindiLLanguage.am teaching hindi in a institution and last year through online I taught a student from gulf.i am a college student and I have secured 1st position in hindi Language",
+        "aboutLesson": "All these years I only taught my students to write by themselves.1.while conducting exams i have already told my students that I don't need exact copy of text book.and strictly I told them to write by themselves then only they will have the skills in hindi."
     }
 ]
