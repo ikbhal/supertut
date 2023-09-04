@@ -16,6 +16,12 @@ app.get('/ping', (req, res) => {
   res.send('Pong!');
 });
 
+
+app.get('/teachers/', (req, res) =>{
+  // return teachers.json at ../data/teachers.json
+  res.sendFile(path.join(__dirname, '../data/teachers.json'));
+});
+
 app.post('/data', (req, res) => {
   const requestData = req.body;
   console.log('Received JSON data:', requestData);
