@@ -7,6 +7,29 @@
         "photo": "https://c.superprof.com/i/a/26313570/11829349/600/20230804111601/can-teach-marathi-hindi-and-english-languages-preprimary-students-have-knowledge-and-able-teach-phoenix-sound-and-how.jpg",
         "about": "I like teaching, i have more interested in Marathi and Hindi subjects because I am more confertable explain my thoughts in these subject. I have Day care experience too so I know how to tackle kids in panic situation. Also I am a good listener so kids can do a reading also.",
         "aboutLesson": "I will try to built his/her confidence at the time of teaching and try to communicate with them. Will continue ask them about their understanding of my methods and wil ask them in every time of class as their concepts."
+        ,"reviews": [
+            {
+                "reviewedBy": "Vivek",
+                "rate":4,
+                "text": "Excellent! Good teacher. Also, Good at handling and involving kids."
+            },
+            {
+                "reviewedBy": "Shruti",
+                "rate":4,
+                "text": "Dhanashree is a very supportive teacher. The way she teaches shows her quality of confidence, helping & understanding nature. So that students don't get uncomfortable with her.Her enthusiastic nature boosts students moral because of which students are getting involved in learning subject."
+            },
+            {
+                "reviewedBy": "Sayooj",
+                "rate":4,
+                "text": "She is good teacher nd she teaches very well each topics"
+            },
+            {
+                "reviewedBy": "Meghana",
+                "rate":4,
+                "text": "She is very fluent in Languages godd teacher and teaching is superb"
+            }
+        ]
+        
     },
     {
         "name": "Poonam",
@@ -17,6 +40,19 @@
         "photo": "https://c.superprof.com/i/a/21265154/10243888/600/20220711081113/master-hindi-literature-with-years-teaching-experience-taking-classes-xii-standard-methodology-make.jpg",
         "about": "A senior but cool teacher.Master trainer of Hindi subject.Prepare classroom lectures with presentation.Encourage in-depth understanding through debates.Ensure fluency in written and verbal communication skills with practical knowledge, besides repeated tests and quizzes. making learning a fun and interesting.",
         "aboutLesson": "A senior but cool teacher. Focus to solve question (s) of the students with a simple activity based method. Prepare classroom lectures with presentation. Encourage in-depth understanding through debates. Ensure fluency in written and verbal communication skills with practical knowledge, besides repeated tests and quizzes. Help to catch their full potential. making learning a fun and interesting. Sensitive and tolerant to each student’s needs. Always has a positive attitude towards their students. Make learning experience amazing.",
+   
+        "reviews": [
+            {
+                "reviewedBy": "Sanjeev",
+                "rating":  5,
+                "text": "Mrs Poonam Agrwal is an Excellent Teacher.During his session, he focus on each and every student that make him stand out from others. We are in Hungary. My daughter in is very happy take tuition from her."
+            },
+            {
+                "reviewedBy": "Dolly",
+                "rating":  5,
+                "text": "i would like to say that poonam mam is one of the most and precious person that I have ever known,she is a kind hearted teacher on top of that she has a very good educational qualification and teaching skill too . Her way of teaching is really attractive and understandable to the learners."
+            }
+        ]
     },
     {
         "name": "Sradha p nair",
