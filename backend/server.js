@@ -17,7 +17,7 @@ app.get('/ping', (req, res) => {
 });
 
 
-app.get('/api/v1/teachers/', (req, res) =>{
+app.get('/api/v1/teachers', (req, res) =>{
   // return teachers.json at ../data/teachers.json
   res.sendFile(path.join(__dirname, 'data', 'teachers.json'));
 });
