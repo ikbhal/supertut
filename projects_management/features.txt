@@ -1,0 +1,11 @@
+reviews 
+1) id integer primary key auto incrmenet, teacher id integer reference teachers(id column ), 
+reviewedBy, text, createdAt, updatedAt
+---
+
+functionality
+1) list reviews of teacher given id 
+2) add review for given teacher id 
+3) delete review for given teacher id 
+4) edit review for given teacher id 
+---
