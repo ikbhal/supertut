@@ -3,6 +3,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
+const reviewsRouter = require('./reviews_router'); // Adjust the path if needed
+
 
 // Specify the database file path
 const dbFilePath = 'data/teachers.db';
@@ -19,6 +21,9 @@ app.use(bodyParser.json());
 
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Mount the reviews router at a specific base path
+app.use('/api/v2/teachers', reviewsRouter);
 
 app.get('/ping', (req, res) => {
   res.send('Pong!');
