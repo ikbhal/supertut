@@ -1,0 +1,17 @@
+Ikbhal
+======
+min: dummy 10 teacher without review add 
+ dummy api 
+---
+min: mongodb install  -> server 
+
+collection 
+  teacher 
+     review sub collection 
+mongoose -> package 
+---
+
+-=========
+Kishore
+Home page 
+then move to start find teacher
