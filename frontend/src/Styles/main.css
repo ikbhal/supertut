@@ -1,8 +1,72 @@
-.main-container{
-  display: flex;
-
+.top-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding: 100px 0;
+ 
 }
-.right-container{
+.right-container {
+  position: relative;
   display: flex;
+  gap: 25px;
+  margin-right: -100px;
+}
+.left-container {
+  padding-left: 150px;
+}
+.left-container h1 {
+  font-size: 55px;
+}
+.image-div {
+  display: inline-block;
+  border-radius: 140px;
+  overflow: hidden;
+}
+.image-div img {
+  height: 100%;
+}
+.image-div:nth-child(even) {
+  position: relative;
+  top: 80px;
 }
 
+.find-tutor{
+  background-color: #FF6363;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 10px;
+  color: white;
+  margin-top: 20px;
+  box-shadow: 0.5px 0.5px 10px rgba(0,0,0,0.15), -0.5px -0.5px 10px  rgba(0,0,0,0.15);
+}
+.middle-container{
+  background-color: white;
+}
+.center-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.process-select{
+  width: 50vw;
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  row-gap: 50px;
+  column-gap: 20px;
+}
+.process-card{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.process-card video{
+  width: 350px;
+  border-radius: 30px;
+}
