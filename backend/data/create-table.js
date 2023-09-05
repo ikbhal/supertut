@@ -28,6 +28,23 @@ db.serialize(() => {
   });
 });
 
+// Create the reviews table
+console.log("lets create reviews  table");
+db.serialize(() => {
+  db.run(`
+    CREATE TABLE IF NOT EXISTS reviews (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      teacher_id INTEGER REFERENCES teachers(id),
+      reviewedBy TEXT,
+      text TEXT,
+      createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
+
+  console.log('Reviews table created successfully');
+});
+
 // Close the database connection
 db.close((err) => {
   if (err) {
