@@ -1,4 +1,4 @@
 1) update teacher api 
 2) admin update teacher  edit button -> update teacher form , handle it 
-3) rate from, to  support api/v2/teachers
+$3) rate from, to  support api/v2/teachers
 4) teachers list, pageNumber, pageSize 

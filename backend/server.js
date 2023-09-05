@@ -86,7 +86,7 @@ app.post('/api/v2/teachers', (req, res) => {
 // TODO reviews missing
 // TODO pagination for teachers
 app.get('/api/v2/teachers', (req, res) => {
-  const { rateFrom, rateTo } = req.query;
+  const { rateFrom, rateTo, pageNumber, pageSize } = req.query;
 
   let query = 'SELECT * FROM teachers';
   let params = [];
@@ -100,6 +100,12 @@ app.get('/api/v2/teachers', (req, res) => {
   } else if (rateTo) {
     query += ' WHERE hourlyFee <= ?';
     params.push(parseInt(rateTo));
+  }
+
+  if (pageNumber && pageSize) {
+    const offset = (parseInt(pageNumber) - 1) * parseInt(pageSize);
+    query += ' LIMIT ? OFFSET ?';
+    params.push(parseInt(pageSize), offset);
   }
 
   db.all(query, params, (err, rows) => {
