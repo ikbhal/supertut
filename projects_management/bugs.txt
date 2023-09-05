@@ -1,0 +1,2 @@
+1) admin -> create teache form not working
+2) delete button on table row not working
