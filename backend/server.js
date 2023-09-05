@@ -2,9 +2,17 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
+const sqlite3 = require('sqlite3').verbose();
+
+// Specify the database file path
+const dbFilePath = 'data/teachers.db';
+const db = new sqlite3.Database(dbFilePath);
 
 const app = express();
 const PORT = 7000;
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -28,6 +36,117 @@ app.post('/data', (req, res) => {
   res.json({ message: 'Data received successfully' });
 });
 
+//v2 with sqlite
+// POST /teachers
+app.post('/api/v2/teachers', (req, res) => {
+  const {
+    name,
+    hourlyFee,
+    responseTime,
+    totalStudents,
+    photo,
+    title,
+    about,
+    aboutLesson,
+  } = req.body;
+
+  const createdAt = new Date();
+  const updatedAt = new Date();
+
+  db.run(
+    'INSERT INTO teachers (name, hourlyFee, responseTime, totalStudents, photo, title, about, aboutLesson, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+    [
+      name,
+      hourlyFee,
+      responseTime,
+      totalStudents,
+      photo,
+      title,
+      about,
+      aboutLesson,
+      createdAt,
+      updatedAt,
+    ],
+    function (err) {
+      if (err) {
+        return res.status(500).json({ error: err.message });
+      }
+      res.json({ id: this.lastID });
+    }
+  );
+});
+
+
+// Define route to get teachers filtered by rate
+// TODO reviews missing
+// TODO pagination for teachers
+app.get('/api/v2/teachers', (req, res) => {
+  const { rate } = req.query;
+
+  let query = 'SELECT * FROM teachers';
+  let params = [];
+
+  if (rate) {
+    query += ' WHERE hourlyFee <= ?';
+    params.push(parseInt(rate));
+  }
+
+  db.all(query, params, (err, rows) => {
+    if (err) {
+      console.error('Error fetching teachers:', err.message);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      res.json(rows);
+    }
+  });
+});
+
+
+// Define route to get teacher by ID
+app.get('/api/v2/teachers/:id', (req, res) => {
+  const teacherId = req.params.id;
+
+  db.get('SELECT * FROM teachers WHERE id = ?', [teacherId], (err, row) => {
+    if (err) {
+      console.error('Error fetching teacher:', err.message);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else if (row) {
+      res.json(row);
+    } else {
+      res.status(404).json({ error: 'Teacher not found' });
+    }
+  });
+});
+
+
+
+// Delete teacher by ID
+app.delete('/api/v2/teachers/:id', (req, res) => {
+  const teacherId = req.params.id;
+
+  db.run('DELETE FROM teachers WHERE id = ?', [teacherId], function (err) {
+    if (err) {
+      console.error('Error deleting teacher:', err.message);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else if (this.changes > 0) {
+      res.json({ message: 'Teacher deleted successfully' });
+    } else {
+      res.status(404).json({ error: 'Teacher not found' });
+    }
+  });
+});
+
+// admin pages 
+app.get('/admin', (req, res) => {
+  db.all('SELECT * FROM teachers', (err, rows) => {
+    if (err) {
+      console.error('Error fetching teachers:', err.message);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      res.render('admin', { teachers: rows });
+    }
+  });
+});
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

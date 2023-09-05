@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/admin_styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Admin Page</h1>
+
+    
+    <button id="toggleCreateTeacherForm" class="btn btn-primary">Toggle Show Create Teacher Form</button>
+
+    <div id ="createTeacherFormWrapper">
+      <h2>Create Teacher</h2>
+      <form id="create-teacher-form">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="form-group">
+          <label for="hourlyFee">Hourly Fee:</label>
+          <input type="number" class="form-control" id="hourlyFee" name="hourlyFee">
+        </div>
+        <div class="form-group">
+          <label for="responseTime">Response Time:</label>
+          <input type="text" class="form-control" id="responseTime" name="responseTime">
+        </div>
+        <div class="form-group">
+          <label for="totalStudents">Total Students:</label>
+          <input type="number" class="form-control" id="totalStudents" name="totalStudents">
+        </div>
+        <div class="form-group">
+          <label for="photo">Photo URL:</label>
+          <input type="text" class="form-control" id="photo" name="photo">
+        </div>
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" class="form-control" id="title" name="title">
+        </div>
+        <div class="form-group">
+          <label for="about">About:</label>
+          <textarea class="form-control" id="about" name="about"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="aboutLesson">About Lesson:</label>
+          <textarea class="form-control" id="aboutLesson" name="aboutLesson"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Create</button>
+
+      </form>
+    </div>
+
+    <hr />
+
+    <button id="toggleTeacherDetails" class="btn btn-primary">Toggle Show Teacher Details</button>
+    <div id="toggleTeacherDetailsWrapper">
+      <h2>Teacher Details</h2>
+      <div id="teacher-details-container" class="mt-4"></div>
+    </div>
+
+    <hr />
+
+    <h2>Teachers List</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% teachers.forEach(teacher=> { %>
+          <tr>
+            <td>
+              <%= teacher.id %>
+            </td>
+            <td>
+              <%= teacher.name %>
+            </td>
+            <td>
+              <!-- <a href="/admin/teachers/<%= teacher.id %>" class="btn btn-primary">View</a> -->
+              <a href="#" class="btn btn-primary view-teacher" data-teacher-id="<%= teacher.id %>">View</a>
+
+              <button class="btn btn-danger delete-teacher" data-id="<%= teacher.id %>">Delete</button>
+            </td>
+          </tr>
+          <% }); %>
+      </tbody>
+    </table>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="/js/admin_script.js"></script>
+</body>
+
+</html>

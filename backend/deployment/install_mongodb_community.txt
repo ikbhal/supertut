@@ -1,0 +1,50 @@
+
+start: https://www.mongodb.com/docs/v4.0/tutorial/install-mongodb-on-debian/
+
+not much use
+---
+trying chatgpt now
+how to install mongodb community edition at debian version 11 bullseye
+ChatGPT
+To install MongoDB Community Edition on Debian 11 (bullseye), you can follow these steps:
+
+Import MongoDB GPG Key:
+Run the following command to import the GPG key used by MongoDB for package verification:
+
+bash
+Copy code
+wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+Add MongoDB Repository:
+Add the MongoDB repository to your system's package sources using the following command:
+
+bash
+Copy code
+echo "deb http://repo.mongodb.org/apt/debian $(lsb_release -cs)/mongodb-org/5.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+Update Package List:
+Update the package list to include the newly added MongoDB repository:
+
+bash
+Copy code
+sudo apt update
+Install MongoDB Packages:
+Install the MongoDB packages using the following command:
+
+bash
+Copy code
+sudo apt install mongodb-org
+Enable and Start MongoDB:
+MongoDB will be started automatically after installation. You can enable and start the MongoDB service using these commands:
+
+bash
+Copy code
+sudo systemctl enable mongod
+sudo systemctl start mongod
+Verify MongoDB Status:
+Check the status of the MongoDB service to ensure it's running:
+
+bash
+Copy code
+sudo systemctl status mongod
+That's it! MongoDB Community Edition should now be installed and running on your Debian 11 (bullseye) system. You can interact with MongoDB using the MongoDB shell (mongo command) or connect to it from applications.
+
+Please note that the version numbers mentioned in the commands and URLs might change based on the latest MongoDB version available at the time of installation. Make sure to check the official MongoDB documentation for the most up-to-date information: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/
