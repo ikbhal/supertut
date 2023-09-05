@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Styles/header.css'
+import {FaBars} from 'react-icons/fa'
 
 const Header = () => {
   return (
@@ -9,7 +10,7 @@ const Header = () => {
         <button className='btn-class'>Tutor LogIn</button>
         <button className='btn-class'>Student LogIn</button>
       </div>
-
+        <FaBars className='bars' />
     </div>
   )
 }
