@@ -4,7 +4,7 @@ $(document).ready(function () {
     const teacherId = $(this).data('id');
     if (confirm('Are you sure you want to delete this teacher?')) {
       $.ajax({
-        url: `/admin/teachers/${teacherId}`,
+        url: `/api/v2/teachers/${teacherId}`,
         method: 'DELETE',
         success: function (response) {
           window.location.reload();
@@ -38,6 +38,7 @@ $(document).ready(function () {
     $.ajax({
       url: '/api/v2/teachers',
       method: 'POST',
+      contentType: 'application/json', // Set content type to JSON
       data: JSON.stringify(formData),
       success: function (response) {
         alert('Teacher created successfully.');
