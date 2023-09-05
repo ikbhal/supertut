@@ -30,7 +30,7 @@ app.get('/ping', (req, res) => {
 });
 
 
-app.get('/api/v1/teachers', (req, res) =>{
+app.get('/api/v1/teachers', (req, res) => {
   // return teachers.json at ../data/teachers.json
   res.sendFile(path.join(__dirname, 'data', 'teachers.json'));
 });
@@ -152,6 +152,20 @@ app.get('/admin', (req, res) => {
     }
   });
 });
+
+// Admin Reviews Route
+app.get('/admin/teachers/:teacherId/reviews', async (req, res) => {
+  const teacherId = req.params.teacherId;
+  try {
+    res.render('admin_reviews', {
+    });
+  } catch (error) {
+    console.error('Error fetching teacher details:', error);
+    res.status(500).send('An error occurred while fetching teacher details');
+  }
+});
+
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

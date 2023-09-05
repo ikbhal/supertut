@@ -14,7 +14,7 @@
     
     <button id="toggleCreateTeacherForm" class="btn btn-primary">Toggle Show Create Teacher Form</button>
 
-    <div id ="createTeacherFormWrapper">
+    <div id ="createTeacherFormWrapper" class="hidden">
       <h2>Create Teacher</h2>
       <form id="create-teacher-form">
         <div class="form-group">
@@ -85,6 +85,7 @@
             <td>
               <!-- <a href="/admin/teachers/<%= teacher.id %>" class="btn btn-primary">View</a> -->
               <a href="#" class="btn btn-primary view-teacher" data-teacher-id="<%= teacher.id %>">View</a>
+              <a href="/admin/teachers/<%= teacher.id %>/reviews" class="btn btn-primary">Reviews</a>
 
               <button class="btn btn-danger delete-teacher" data-id="<%= teacher.id %>">Delete</button>
             </td>

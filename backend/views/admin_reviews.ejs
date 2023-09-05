@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Reviews</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-4">
+
+  <div id="alert-container">
+
+  </div>
+  <h2>Teacher Reviews</h2>
+
+  <!-- Review Form -->
+  <form id="reviewForm">
+    <div class="form-group">
+      <label for="reviewedBy">Reviewed By:</label>
+      <input type="text" class="form-control" id="reviewedBy" name="reviewedBy">
+    </div>
+    <div class="form-group">
+      <label for="reviewText">Review Text:</label>
+      <textarea class="form-control" id="reviewText" name="reviewText"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Review</button>
+  </form>
+
+  <hr>
+
+  <!-- Review List -->
+  <h3>Reviews</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Reviewed By</th>
+        <th>Text</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="reviewList">
+      <!-- Populate the table rows dynamically with reviews data -->
+    </tbody>
+  </table>
+</div>
+
+<!-- Include jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Include admin_reviews_script.js -->
+<script src="/js/admin_reviews_script.js"></script>
+</body>
+</html>
