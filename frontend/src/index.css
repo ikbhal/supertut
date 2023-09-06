@@ -6,11 +6,28 @@
 }
 body{
   font-family: 'Roboto', sans-serif;
-  background-color: #FFF1F1;
+  height: 100%;
+  background-image: linear-gradient(to bottom, #FFF1F1, #FFFFFF);
 }
 button{
   cursor: pointer;
 }
 ul{
   list-style-type: none;
+}
+.text-card{
+  padding: 10px;
+  width: 40%;
+}
+.text-card>h2{
+  padding: 10px 0;
+}
+@media (max-width:480px) {
+  .text-card{
+    padding: 8px;
+    width: 95%;
+  }
+  .text-card>h2{
+    padding: 5px 0;
+  }
 }

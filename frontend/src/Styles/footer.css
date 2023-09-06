@@ -1,0 +1,45 @@
+.footer-container{
+  margin-top: 200px;
+  background-color: black;
+  color: white;
+}
+.footer-data{
+  display: flex;
+  gap: 100px;
+  padding: 50px 0;
+  border-bottom: 1px solid white;
+}
+
+.copy-right{
+text-align: center;
+color: rgb(175, 175, 175);
+padding: 10px 0;
+}
+.footer-data ul>li{
+  padding: 3px 0;
+}
+.heading{
+  text-decoration: underline;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.follow-us{
+  display: flex;
+  gap:10px;
+  cursor: pointer;
+}
+
+@media(max-width:480px) {
+  .footer-container{
+    margin-top: 30px;
+    background-color: black;
+    color: white;
+  }
+  .footer-data{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0 20px 15px;
+    border-bottom: 1px solid white;
+  }
+}

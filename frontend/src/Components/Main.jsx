@@ -8,7 +8,7 @@ const Main = () => {
     <div className="main-container">
       <div className="top-container">
         <div className="left-container">
-          <h1>Get a Certified and Qualified Tutor from Online</h1>
+          <h1>Get a Certified and Qualified Tutors from Online</h1>
           <button className="find-tutor">Find a Tutor</button>
         </div>
         <div className="right-container">
