@@ -115,11 +115,12 @@
   }
   .middle-container>h2{
     font-size: 35px;
-    padding-top: 30px;
+    padding-top: 20px;
     margin-left: 10px;
   }
   .center-container{
     padding: 5px;
+    justify-content: flex-start;
   }
   .process-card{
     display: flex;
