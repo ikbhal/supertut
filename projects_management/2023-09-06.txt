@@ -1,0 +1,14 @@
+
+
+Ikbhal
+===
+reviews in api/v2/teachers
+---
+
+typescript server.js to ts
+ go slow
+---
+mongodb try again at the end 
+
+====
+google login 

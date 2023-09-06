@@ -88,17 +88,17 @@ app.post('/api/v2/teachers', (req, res) => {
 app.get('/api/v2/teachers', (req, res) => {
   const { rateFrom, rateTo, pageNumber, pageSize } = req.query;
 
-  let query = 'SELECT * FROM teachers';
+  let query = 'SELECT * FROM teachers WHERE 1';
   let params = [];
 
   if (rateFrom && rateTo) {
-    query += ' WHERE hourlyFee >= ? AND hourlyFee <= ?';
+    query += ' AND hourlyFee >= ? AND hourlyFee <= ?';
     params.push(parseInt(rateFrom), parseInt(rateTo));
   } else if (rateFrom) {
-    query += ' WHERE hourlyFee >= ?';
+    query += ' AND hourlyFee >= ?';
     params.push(parseInt(rateFrom));
   } else if (rateTo) {
-    query += ' WHERE hourlyFee <= ?';
+    query += ' AND hourlyFee <= ?';
     params.push(parseInt(rateTo));
   }
 
@@ -176,6 +176,67 @@ app.get('/admin/teachers/:teacherId/reviews', async (req, res) => {
     res.status(500).send('An error occurred while fetching teacher details');
   }
 });
+
+
+// v3 begin  -> reviews merge 
+app.get('/api/v3/teachers', (req, res) => {
+
+  const { rateFrom, rateTo, pageNumber, pageSize } = req.query;
+
+  let query = 'SELECT * FROM teachers WHERE 1';
+  let params = [];
+
+  if (rateFrom && rateTo) {
+    query += ' AND hourlyFee >= ? AND hourlyFee <= ?';
+    params.push(parseInt(rateFrom), parseInt(rateTo));
+  } else if (rateFrom) {
+    query += ' AND hourlyFee >= ?';
+    params.push(parseInt(rateFrom));
+  } else if (rateTo) {
+    query += ' AND hourlyFee <= ?';
+    params.push(parseInt(rateTo));
+  }
+
+  if (pageNumber && pageSize) {
+    const offset = (parseInt(pageNumber) - 1) * parseInt(pageSize);
+    query += ' LIMIT ? OFFSET ?';
+    params.push(parseInt(pageSize), offset);
+  }
+
+  db.all(query, params, (err, teachers) => {
+    if (err) {
+      console.error('Error fetching teachers:', err.message);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      // Fetch reviews for each teacher
+      const promises = teachers.map(teacher => {
+        return new Promise((resolve, reject) => {
+          db.all('SELECT * FROM reviews WHERE teacher_id = ?', [teacher.id], (err, reviews) => {
+            if (err) {
+              reject(err);
+            } else {
+              teacher.reviews = reviews;
+              resolve();
+            }
+          });
+        });
+      });
+
+      // Wait for all promises to complete
+      Promise.all(promises)
+        .then(() => {
+          res.json(teachers);
+        })
+        .catch(error => {
+          console.error('Error fetching reviews:', error.message);
+          res.status(500).json({ error: 'Internal Server Error' });
+        });
+    }
+  });
+});
+
+
+// v3 end
 
 
 app.listen(PORT, () => {
