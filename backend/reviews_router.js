@@ -25,11 +25,11 @@ router.get('/:id/reviews', (req, res) => {
 // Add Review for a Teacher
 router.post('/:id/reviews', (req, res) => {
   const teacherId = req.params.id;
-  const { reviewedBy, text } = req.body;
+  const { reviewedBy, text , rating} = req.body;
 
   db.run(
-    'INSERT INTO reviews (teacher_id, reviewedBy, text) VALUES (?, ?, ?)',
-    [teacherId, reviewedBy, text],
+    'INSERT INTO reviews (teacher_id, reviewedBy, text, rating) VALUES (?, ?, ?)',
+    [teacherId, reviewedBy, text, rating],
     (err) => {
       if (err) {
         console.error(err.message);

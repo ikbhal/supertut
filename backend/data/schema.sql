@@ -17,6 +17,11 @@ CREATE TABLE reviews (
   teacher_id INTEGER REFERENCES teachers(id),
   reviewedBy TEXT,
   text TEXT,
+  
   createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
   updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+-- // rating INTEGER DEFAULT 0,
+ALTER TABLE reviews
+ADD COLUMN rating INTEGER DEFAULT 0;

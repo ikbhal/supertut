@@ -15,7 +15,8 @@ $(document).ready(function () {
     event.preventDefault();
     const formData = {
       reviewedBy: $('#reviewedBy').val(),
-      text: $('#reviewText').val()
+      text: $('#reviewText').val(),
+      rating: $('#reviewRating').val()
     };
     $.ajax({
       url: `/api/v2/teachers/${teacherId}/reviews`,
