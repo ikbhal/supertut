@@ -2,7 +2,7 @@
 
 Ikbhal
 ===
-reviews in api/v2/teachers
+$reviews in api/v2/teachers
 ---
 
 typescript server.js to ts

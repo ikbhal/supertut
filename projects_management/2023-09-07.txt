@@ -1,0 +1,81 @@
+
+Ikbhal
+---
+
+user reviews 
+  array 
+  4.5 
+
+ ---
+ average rating of teacher 
+ rating by each student to the teacher 
+
+user register 
+user login 
+
+user profile (name, email, photo) 
+
+typescript react tood appp view -> practice
+
+
+
+Kishore
+--- 
+
+
+https://supertut.rontohub.com/api/v3/book_teacher
+
+post  http method 
+
+
+request body 
+{
+     student_id: 's1', // student_email 
+     teacher_id: 't2', 
+     booking_date: '2020-12-12'
+}
+
+
+
+---
+kishire student login 
+find teaher 
+teacher profile
+book class 
+  teacher_id 
+  student_email -> student login google auth 0
+  book date _> date picker 
+  
+
+---
+
+users table 
+id, email, password, name, //roles(student, teacher or both)
+
+
+ikbhal user 
+  teacher hindi 
+  english student learn 
+
+
+  ---
+
+  google, linked, git 
+
+  user table 
+   user row _> user id, name, email 
+   user-Id 
+---
+google login 
+ is authenticated 
+  --> 
+   https://supertut.rontohub.com/api/v3/user_login 
+   {
+    email
+    name
+    authtype=gogole // hard code backend
+   }
+   ---
+   row if not exit 
+     row create 
+
