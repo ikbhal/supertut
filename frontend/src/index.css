@@ -22,6 +22,10 @@ ul{
 .text-card>h2{
   padding: 10px 0;
 }
+
+a{
+  text-decoration: none;
+}
 @media (max-width:480px) {
   .text-card{
     padding: 8px;

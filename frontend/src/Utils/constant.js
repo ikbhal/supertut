@@ -1,0 +1,1 @@
+export const TEACHER_API = `https://supertut.rontohub.com/api/v3/teachers`

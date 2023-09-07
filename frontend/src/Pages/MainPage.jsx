@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../Styles/main.css";
-import ProcessCard from "./ProcessCard";
-import ProcessCardMiddle from "./ProcessCardMiddle";
+import ProcessCard from "../Components/ProcessCard";
+import ProcessCardMiddle from "../Components/ProcessCardMiddle";
+import { Link } from "react-router-dom";
+const MainPage = () => {
 
-const Main = () => {
+
+
   return (
     <div className="main-container">
       <div className="top-container">
         <div className="left-container">
           <h1>Get a Certified and Qualified Tutors from Online</h1>
-          <button className="find-tutor">Find a Tutor</button>
+          <Link to="teachers">
+            <button className="find-tutor">Find a Tutor</button>
+            </Link>
         </div>
         <div className="right-container">
           <div className="image-div">
@@ -41,4 +46,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainPage;

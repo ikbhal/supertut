@@ -1,7 +1,9 @@
 .footer-container{
-  margin-top: 200px;
+  margin-top: 300px;
   background-color: black;
   color: white;
+position: relative;
+bottom: 0;
 }
 .footer-data{
   display: flex;
@@ -9,7 +11,6 @@
   padding: 50px 0;
   border-bottom: 1px solid white;
 }
-
 .copy-right{
 text-align: center;
 color: rgb(175, 175, 175);
@@ -31,7 +32,7 @@ padding: 10px 0;
 
 @media(max-width:480px) {
   .footer-container{
-    margin-top: 30px;
+    margin-top: 100px;
     background-color: black;
     color: white;
   }
