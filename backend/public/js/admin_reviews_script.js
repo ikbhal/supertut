@@ -27,6 +27,8 @@ $(document).ready(function () {
         showAlert('success', 'Review added successfully.');
         // $('#reviewList').append(buildReviewRow(response.review)); 
         // TODO reload the page or add review formData some how
+        $('#reviewForm')[0].reset();
+
       },
       error: function (xhr, status, error) {
         showAlert('danger', 'Error adding review.');

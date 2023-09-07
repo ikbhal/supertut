@@ -28,7 +28,7 @@ router.post('/:id/reviews', (req, res) => {
   const { reviewedBy, text , rating} = req.body;
 
   db.run(
-    'INSERT INTO reviews (teacher_id, reviewedBy, text, rating) VALUES (?, ?, ?)',
+    'INSERT INTO reviews (teacher_id, reviewedBy, text, rating) VALUES (?, ?, ?, ?)',
     [teacherId, reviewedBy, text, rating],
     (err) => {
       if (err) {
