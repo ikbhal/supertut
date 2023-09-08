@@ -5,7 +5,6 @@ import { FaStar } from "react-icons/fa";
 import { FaRegMessage } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-
 const SingleTeacher = () => {
   const params = useParams();
   const [page, setPage] = useState({});
@@ -57,7 +56,6 @@ const SingleTeacher = () => {
                 )}
               </div>
             </div>
-
             {page.reviews &&
               page.reviews.map((review, id) => (
                 <div className="review-content" key={review.id}>
@@ -127,17 +125,20 @@ const SingleTeacher = () => {
             </ul>
             <ul>
               <li>Number of Students</li>
-              <li>{page.totalStudents > 0 ? 
-                <p>{page.totalStudents}</p> : <p>0</p>
-              }</li>
+              <li>
+                {page.totalStudents > 0 ? (
+                  <p>{page.totalStudents}</p>
+                ) : (
+                  <p>0</p>
+                )}
+              </li>
             </ul>
-            <Link to='booking'>
+            <Link to="booking">
               <button className="reserve-btn">
-              {" "}
-              <FaRegMessage className="fa-message" /> Reserve a class
-            </button>
+                {" "}
+                <FaRegMessage className="fa-message" /> Reserve a class
+              </button>
             </Link>
-          
           </div>
         </div>
       </div>

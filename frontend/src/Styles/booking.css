@@ -1,0 +1,11 @@
+.booking-container{
+  max-width: 1080px;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+.booking-left{
+  min-width: 300px;
+}
+/* .booking-right{
+  min
+} */
