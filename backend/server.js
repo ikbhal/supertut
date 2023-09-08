@@ -259,6 +259,16 @@ app.get('/api/v3/teachers', (req, res) => {
               reject(err);
             } else {
               teacher.reviews = reviews;
+
+               // Calculate totalReviews and averageRating
+               teacher.totalReviews = reviews.length;
+               if (reviews.length > 0) {
+                 const totalRating = reviews.reduce((acc, review) => acc + review.rating, 0);
+                 teacher.averageRating = Math.round(totalRating / reviews.length);
+               } else {
+                 teacher.averageRating = 0; // Default value if there are no reviews
+               }
+               
               resolve();
             }
           });
