@@ -135,11 +135,11 @@ app.get('/api/v2/teachers/:id', (req, res) => {
   });
 });
 
-app.get('/api/v3/teachers/:id', (req, res) => {
+app.get('/api/v2/teachers/:id', (req, res) => {
   const teacherId = req.params.id;
 
-  // Initialize an object to store teacher details and reviews
-  let responseObj = {};
+  // Initialize an object to store teacher details, reviews, totalReviews, and averageRating
+  const responseObj = {};
 
   // Fetch teacher details
   db.get('SELECT * FROM teachers WHERE id = ?', [teacherId], (err, teacher) => {
@@ -149,7 +149,7 @@ app.get('/api/v3/teachers/:id', (req, res) => {
     } else if (!teacher) {
       res.status(404).json({ error: 'Teacher not found' });
     } else {
-      // Store teacher details in the response object
+      // Spread the properties of the teacher object into the responseObj
       responseObj = { ...teacher };
 
       // Fetch reviews for the teacher
@@ -161,6 +161,15 @@ app.get('/api/v3/teachers/:id', (req, res) => {
           // Store reviews in the response object
           responseObj.reviews = reviews;
 
+          // Calculate totalReviews and averageRating
+          responseObj.totalReviews = reviews.length;
+          if (reviews.length > 0) {
+            const totalRating = reviews.reduce((acc, review) => acc + review.rating, 0);
+            responseObj.averageRating = totalRating / reviews.length;
+          } else {
+            responseObj.averageRating = 0; // Default value if there are no reviews
+          }
+
           // Send the combined response
           res.json(responseObj);
         }
@@ -168,8 +177,6 @@ app.get('/api/v3/teachers/:id', (req, res) => {
     }
   });
 });
-
-
 
 
 // Delete teacher by ID
