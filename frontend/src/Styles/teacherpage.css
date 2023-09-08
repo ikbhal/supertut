@@ -1,11 +1,12 @@
 .teacher-continer{
-  width: 80%;
+  max-width: 1080px;
   margin: 0 auto;
 }
 .card-continer{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 30px;
+  row-gap: 50px;
+  justify-items: center;
 }
 .teacher-card{
   border: 0.5px solid gray;
@@ -54,4 +55,13 @@
   color: #ff6363;
   margin-top: 10px;
   font-size: 14px;
+}
+
+@media (max-width:480px) {
+  .card-continer{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+    justify-items: center;
+  }
 }

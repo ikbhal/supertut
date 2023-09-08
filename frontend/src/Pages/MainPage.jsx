@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../Styles/main.css";
 import ProcessCard from "../Components/ProcessCard";
 import ProcessCardMiddle from "../Components/ProcessCardMiddle";
 import { Link } from "react-router-dom";
 const MainPage = () => {
-
-
 
   return (
     <div className="main-container">
