@@ -24,7 +24,6 @@ const TeacherPage = () => {
           </div>
           <div className="teacher-data">
             <div className="review-div">
-              
               {item.averageRating>=1 ?(
 
                 <><FaStar className="star" /> 
@@ -36,7 +35,6 @@ const TeacherPage = () => {
               ) :(
                   <p>No Reviews</p>
               )}
-           
             </div>
             <p>{item.title}</p>
             <p className="rate-div"> &#8377;{item.hourlyFee}</p>
