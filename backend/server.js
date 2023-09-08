@@ -150,7 +150,7 @@ app.get('/api/v3/teachers/:id', (req, res) => {
       res.status(404).json({ error: 'Teacher not found' });
     } else {
       // Store teacher details in the response object
-      responseObj.teacher = teacher;
+      responseObj = { ...teacher };
 
       // Fetch reviews for the teacher
       db.all('SELECT * FROM reviews WHERE teacher_id = ?', [teacherId], (err, reviews) => {
