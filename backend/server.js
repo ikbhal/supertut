@@ -135,7 +135,7 @@ app.get('/api/v2/teachers/:id', (req, res) => {
   });
 });
 
-app.get('/api/v2/teachers/:id', (req, res) => {
+app.get('/api/v3/teachers/:id', (req, res) => {
   const teacherId = req.params.id;
 
   // Initialize an object to store teacher details, reviews, totalReviews, and averageRating
