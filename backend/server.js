@@ -165,7 +165,8 @@ app.get('/api/v3/teachers/:id', (req, res) => {
           responseObj.totalReviews = reviews.length;
           if (reviews.length > 0) {
             const totalRating = reviews.reduce((acc, review) => acc + review.rating, 0);
-            responseObj.averageRating = totalRating / reviews.length;
+            const averageRating = totalRating / reviews.length;
+            responseObj.averageRating = Math.round(averageRating);
           } else {
             responseObj.averageRating = 0; // Default value if there are no reviews
           }
