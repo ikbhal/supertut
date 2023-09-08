@@ -135,6 +135,41 @@ app.get('/api/v2/teachers/:id', (req, res) => {
   });
 });
 
+app.get('/api/v3/teachers/:id', (req, res) => {
+  const teacherId = req.params.id;
+
+  // Initialize an object to store teacher details and reviews
+  const responseObj = {};
+
+  // Fetch teacher details
+  db.get('SELECT * FROM teachers WHERE id = ?', [teacherId], (err, teacher) => {
+    if (err) {
+      console.error('Error fetching teacher:', err.message);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else if (!teacher) {
+      res.status(404).json({ error: 'Teacher not found' });
+    } else {
+      // Store teacher details in the response object
+      responseObj.teacher = teacher;
+
+      // Fetch reviews for the teacher
+      db.all('SELECT * FROM reviews WHERE teacher_id = ?', [teacherId], (err, reviews) => {
+        if (err) {
+          console.error('Error fetching reviews:', err.message);
+          res.status(500).json({ error: 'Internal Server Error' });
+        } else {
+          // Store reviews in the response object
+          responseObj.reviews = reviews;
+
+          // Send the combined response
+          res.json(responseObj);
+        }
+      });
+    }
+  });
+});
+
+
 
 
 // Delete teacher by ID
