@@ -3,7 +3,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
-const reviewsRouter = require('./reviews_router'); // Adjust the path if needed
+const reviewsRouter = require('./reviews_router'); 
+const reserveClassRouter = require('./reserve_class_router');
 
 
 // Specify the database file path
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Mount the reviews router at a specific base path
 app.use('/api/v2/teachers', reviewsRouter);
+app.use('/api/v3/', reserveClassRouter);
 
 app.get('/ping', (req, res) => {
   res.send('Pong!');
@@ -220,6 +222,38 @@ app.get('/admin/teachers/:teacherId/reviews', async (req, res) => {
   }
 });
 
+
+// Update the route to render the admin reserve classes view
+app.get('/admin/teachers/:teacherId/reserve_classes', (req, res) => {
+  const teacherId = req.params.teacherId;
+
+  // Call the fetchReserveClassesForTeacher function to retrieve reserve classes
+  fetchReserveClassesForTeacher(teacherId, (err, reserveClasses) => {
+    if (err) {
+      console.error('Error fetching reserve classes:', err.message);
+      // Handle the error as needed, such as rendering an error page or sending a JSON response
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      // Render the 'admin_reserve_classes.ejs' view with the reserve classes data
+      res.render('admin_reserve_classes', { reserveClasses });
+    }
+  });
+});
+
+
+function fetchReserveClassesForTeacher(teacherId, callback) {
+  const query = 'SELECT * FROM reserve_classes WHERE teacher_id = ?';
+
+  db.all(query, [teacherId], (err, rows) => {
+    if (err) {
+      console.error('Error fetching reserve classes:', err.message);
+      callback(err, null);
+    } else {
+      // Return the array of reserve classes for the teacher
+      callback(null, rows);
+    }
+  });
+}
 
 // v3 begin  -> reviews merge 
 app.get('/api/v3/teachers', (req, res) => {
