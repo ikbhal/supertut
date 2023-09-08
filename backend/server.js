@@ -139,7 +139,7 @@ app.get('/api/v3/teachers/:id', (req, res) => {
   const teacherId = req.params.id;
 
   // Initialize an object to store teacher details and reviews
-  const responseObj = {};
+  let responseObj = {};
 
   // Fetch teacher details
   db.get('SELECT * FROM teachers WHERE id = ?', [teacherId], (err, teacher) => {
