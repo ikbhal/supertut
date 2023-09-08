@@ -66,6 +66,7 @@ $(document).ready(function () {
       <tr id="review-${review.id}">
         <td>${review.id}</td>
         <td>${review.reviewedBy}</td>
+        <td>${review.rating}</td>
         <td>${review.text}</td>
         <td>
           <button class="btn btn-danger delete-btn" data-review-id="${review.id}">Delete</button>
