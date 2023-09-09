@@ -3,9 +3,34 @@
   margin: 0 auto;
   border: 1px solid red;
 }
-.booking-left{
-  min-width: 300px;
+.booking-content{
+  display: flex;
+  gap: 100px;
 }
-/* .booking-right{
-  min
-} */
+.booking-left{
+  min-width: 320px;
+  border: 1px solid red;
+}
+.select-person{
+  display: inline-flex;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,0.2);
+}
+input[type=radio]{
+  display: none;
+}
+.select-person label{
+  padding: 15px 25px;
+  cursor: pointer;
+  background-color: rgb(227, 227, 227);
+  transition: 0.6s all;
+}
+.select-person input:checked + label{
+  background-color: white;
+  font-weight: 700;
+  box-shadow: 0 0 15px 0px rgba(0,0,0,0.2);
+  transform: scale(105%);
+  z-index: 1;
+  /* border-radius: 5px; */
+}

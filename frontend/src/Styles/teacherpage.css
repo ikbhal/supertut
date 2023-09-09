@@ -61,7 +61,8 @@
   .card-continer{
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: 40px;
+    row-gap: 30px;
     justify-items: center;
+    align-items: center;
   }
 }
